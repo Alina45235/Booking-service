@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бронирование билетов на поезд</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🚂 Бронирование билетов на поезд</h1>
+        
+        <div class="form-container">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="direction">Направление:</label>
+                    <select id="direction" class="select">
+                        <option value="Москва - Санкт-Петербург">Москва - Санкт-Петербург</option>
+                        <option value="Санкт-Петербург - Москва">Санкт-Петербург - Москва</option>
+                        <option value="Москва - Казань">Москва - Казань</option>
+                        <option value="Казань - Москва">Казань - Москва</option>
+                        <option value="Москва - Сочи">Москва - Сочи</option>
+                        <option value="Сочи - Москва">Сочи - Москва</option>
+                        <option value="Москва - Екатеринбург">Москва - Екатеринбург</option>
+                        <option value="Екатеринбург - Москва">Екатеринбург - Москва</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Дата поездки:</label>
+                    <input type="date" id="date" class="input" min="2026-02-24">
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button id="searchBtn" class="btn btn-primary">🔍 Search</button>
+                <button id="bookBtn" class="btn btn-success">📖 Book</button>
+            </div>
+        </div>
+
+        <div class="train-schema">
+            <h2>Схема вагона</h2>
+            <div class="legend">
+                <div class="legend-item">
+                    <span class="seat available"></span>
+                    <span>Свободно</span>
+                </div>
+                <div class="legend-item">
+                    <span class="seat selected"></span>
+                    <span>Выбрано</span>
+                </div>
+                <div class="legend-item">
+                    <span class="seat booked"></span>
+                    <span>Забронировано</span>
+                </div>
+            </div>
+            
+            <div class="carriage" id="carriage"></div>
+        </div>
+
+        <div class="booking-info" id="bookingInfo">
+            <h3>Информация о бронировании</h3>
+            <div id="selectedSeats" class="selected-seats"></div>
+            <div class="total-price" id="totalPrice">Общая стоимость: 0 ₽</div>
+        </div>
+    </div>
+
+    
+    <div class="modal" id="searchModal">
+        <div class="modal-content">
+            <span class="close" id="closeSearchModal">&times;</span>
+            <h2>📋 Найденные бронирования</h2>
+            <div id="searchResults" class="search-results"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
